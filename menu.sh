@@ -145,28 +145,30 @@ echo -e " [\033[1;36m01\033[0m]  Add User SSH
  [\033[1;36m03\033[0m]  Del User SSH
  [\033[1;36m04\033[0m]  Renew SSH
  [\033[1;36m05\033[0m]  Member
+ [\033[1;36m06\033[0m]  autokill SSH
+ [\033[1;36m07\033[0m]  Limit Speed All Service
 \e[36m╒════════════════════════════════════════════╕\033[0m"
 echo -e "\033[1;37m                  XRAY MENU                  "
 echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m
- [\033[1;36m06\033[0m]  Add Vmess Account
- [\033[1;36m07\033[0m]  Add Vless Account
- [\033[1;36m08\033[0m]  Addd Trojan Account
- [\033[1;36m09\033[0m]  Add Sodosok Account
- [\033[1;36m10\033[0m]  Cek User Xray
- [\033[1;36m11\033[0m]  Del User Vmess / Sodosok
- [\033[1;36m12\033[0m]  Del User Trojan
- [\033[1;36m13\033[0m]  Del User Vless
- [\033[1;36m14\033[0m]  Renew User Vmess / Sodosok
- [\033[1;36m15\033[0m]  Renew User Trojan
- [\033[1;36m16\033[0m]  Renew User Vless"
+ [\033[1;36m08\033[0m]  Add Vmess Account
+ [\033[1;36m09\033[0m]  Add Vless Account
+ [\033[1;36m10\033[0m]  Addd Trojan Account
+ [\033[1;36m11\033[0m]  Add Sodosok Account
+ [\033[1;36m12\033[0m]  Cek User Xray
+ [\033[1;36m13\033[0m]  Del User Vmess / Sodosok
+ [\033[1;36m14\033[0m]  Del User Trojan
+ [\033[1;36m15\033[0m]  Del User Vless
+ [\033[1;36m16\033[0m]  Renew User Vmess / Sodosok
+ [\033[1;36m17\033[0m]  Renew User Trojan
+ [\033[1;36m18\033[0m]  Renew User Vless"
 echo -e  "\e[36m╒════════════════════════════════════════════╕\033[0m"
 echo -e "\033[1;37m                Settings MENU                "
 echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m
- [\033[1;36m17\033[0m]  Add-host
- [\033[1;36m18\033[0m]  Gen SSL 
- [\033[1;36m19\033[0m]  Backup 
- [\033[1;36m20\033[0m]  Restore
- [\033[1;36m21\033[0m]  Webmin
+ [\033[1;36m19\033[0m]  Add-host
+ [\033[1;36m20\033[0m]  Gen SSL 
+ [\033[1;36m21\033[0m]  Backup 
+ [\033[1;36m22\033[0m]  Restore
+ [\033[1;36m23\033[0m]  Webmin
 "
 if [[ $(cat /opt/.ver) = $serverV ]] > /dev/null 2>&1; then
 echo -ne
@@ -209,36 +211,40 @@ if [[ $(cat /opt/.ver) = $serverV ]] > /dev/null 2>&1; then
     elif [[ $x -eq 5 ]]; then
        member
     elif [[ $x -eq 6 ]]; then
-       add-ws
+       autokill
     elif [[ $x -eq 7 ]]; then
-       add-vless
+       limit-speed
     elif [[ $x -eq 8 ]]; then
-       add-tr
+       add-ws
     elif [[ $x -eq 9 ]]; then
-       add-ssws
+       add-vless
     elif [[ $x -eq 10 ]]; then
-       cek-ws
+       add-tr
     elif [[ $x -eq 11 ]]; then
-       del-user
+       add-ssws
     elif [[ $x -eq 12 ]]; then
-       del-tr
+       cek-ws
     elif [[ $x -eq 13 ]]; then
-       del-vless
+       del-user
     elif [[ $x -eq 14 ]]; then
-       renew-xray
+       del-tr
     elif [[ $x -eq 15 ]]; then
-       renew-tr
+       del-vless
     elif [[ $x -eq 16 ]]; then
-       renew-vless
+       renew-xray
     elif [[ $x -eq 17 ]]; then
-       add-host
+       renew-tr
     elif [[ $x -eq 18 ]]; then
-       crtv2ray
+       renew-vless
     elif [[ $x -eq 19 ]]; then
-       backup
+       add-host
     elif [[ $x -eq 20 ]]; then
-       restore
+       crtv2ray
     elif [[ $x -eq 21 ]]; then
+       backup
+    elif [[ $x -eq 22 ]]; then
+       restore
+    elif [[ $x -eq 23 ]]; then
        webmin
     else
        menu
@@ -259,36 +265,40 @@ else
     elif [[ $x -eq 5 ]]; then
        member
     elif [[ $x -eq 6 ]]; then
-       add-ws
+       autokill
     elif [[ $x -eq 7 ]]; then
-       add-vless
+       limit-speed
     elif [[ $x -eq 8 ]]; then
-       add-tr
+       add-ws
     elif [[ $x -eq 9 ]]; then
-       add-ssws
+       add-vless
     elif [[ $x -eq 10 ]]; then
-       cek-ws
+       add-tr
     elif [[ $x -eq 11 ]]; then
-       del-user
+       add-ssws
     elif [[ $x -eq 12 ]]; then
-       del-tr
+       cek-ws
     elif [[ $x -eq 13 ]]; then
-       del-vless
+       del-user
     elif [[ $x -eq 14 ]]; then
-       renew-xray
+       del-tr
     elif [[ $x -eq 15 ]]; then
-       renew-tr
+       del-vless
     elif [[ $x -eq 16 ]]; then
-       renew-vless
+       renew-xray
     elif [[ $x -eq 17 ]]; then
-       add-host
+       renew-tr
     elif [[ $x -eq 18 ]]; then
-       crtv2ray
+       renew-vless
     elif [[ $x -eq 19 ]]; then
-       backup
+       add-host
     elif [[ $x -eq 20 ]]; then
-       restore
+       crtv2ray
     elif [[ $x -eq 21 ]]; then
+       backup
+    elif [[ $x -eq 22 ]]; then
+       restore
+    elif [[ $x -eq 23 ]]; then
        webmin
     else
        menu
